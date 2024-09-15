@@ -2,23 +2,25 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { env } from 'process';
 import { UserModule } from './user/user.module';
+import { User } from './user/entities/user.entity';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 
 // database information
 @Module({
   imports: [
+    ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',
       port: 5432,
       username: 'postgres',
-      password: env.DATABASE_PASSWORD,
+      password: process.env.DATABASE_PASSWORD,
       database: 'fullstackProject',
-      entities: [],
+      entities: [User],
       synchronize: true,
     }),
-    UserModule
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
