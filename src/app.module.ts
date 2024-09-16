@@ -6,6 +6,7 @@ import { UserModule } from './user/user.module';
 import { User } from './user/entities/user.entity';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { PostModule } from './post/post.module';
+import { UserPostModule } from './user_post/user_post.module';
 
 // database information
 @Module({
@@ -23,6 +24,7 @@ import { PostModule } from './post/post.module';
     }),
     UserModule,
     PostModule,
+    UserPostModule,
   ],
   controllers: [AppController],
   providers: [AppService],
