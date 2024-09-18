@@ -14,6 +14,6 @@ export class UserPost {
     @Column()
     userId: number;
 
-    @Column()
+    @Column({type: 'timestamp without time zone'})
     creationDate: Timestamp;
 }
