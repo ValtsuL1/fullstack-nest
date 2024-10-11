@@ -25,7 +25,7 @@ export class UserPostService {
   }
 
   findOne(id: number) {
-    this.userPostRepository.findOneBy({ id });
+    return this.userPostRepository.findOneBy({ id });
   }
 
   update(id: number, updateUserPostDto: UpdateUserPostDto) {
