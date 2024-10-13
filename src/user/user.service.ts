@@ -4,7 +4,7 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './entities/user.entity';
 import { Repository } from 'typeorm';
-import encodePassword from 'src/utils/bcrypt';
+import { encodePassword } from 'src/utils/bcrypt';
 
 @Injectable()
 export class UserService {
