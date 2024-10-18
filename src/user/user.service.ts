@@ -20,8 +20,14 @@ export class UserService {
     return this.userRepository.save(user);
   }
 
-  findByEmail(email: string): Promise<User | undefined> {
-    return this.userRepository.findOneBy({ email })
+  async findByEmail(email: string) {
+    const user = await this.userRepository
+    .createQueryBuilder()
+    .select("user")
+    .from(User, "user")
+    .where("user.email = :email", { email: email })
+    .getOne()
+    return user
   }
 
   findAll() {

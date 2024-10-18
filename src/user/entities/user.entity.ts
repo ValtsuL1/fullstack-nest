@@ -12,7 +12,7 @@ export class User {
     @Column({type: 'varchar', length: '60'})
     email: string;
 
-    @Column({type: 'varchar', length: '60'})
+    @Column({type: 'varchar', length: '256'})
     password: string;
 
     @OneToMany(() => UserPost, (userPost) => userPost.user)
