@@ -40,7 +40,7 @@ import { IS_PUBLIC_KEY } from './auth.module';
         );
         request['user'] = payload;
       } catch {
-        throw new UnauthorizedException();
+        throw new UnauthorizedException()
       }
       return true;
     }
