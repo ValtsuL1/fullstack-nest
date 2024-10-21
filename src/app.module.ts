@@ -8,6 +8,7 @@ import { ConfigModule } from '@nestjs/config';
 import { UserPostModule } from './user_post/user_post.module';
 import { UserPost } from './user_post/entities/user_post.entity';
 import { AuthModule } from './auth/auth.module';
+import { CommentModule } from './comment/comment.module';
 
 // database information
 @Module({
@@ -26,6 +27,7 @@ import { AuthModule } from './auth/auth.module';
     UserModule,
     UserPostModule,
     AuthModule,
+    CommentModule,
   ],
   controllers: [AppController],
   providers: [AppService],
