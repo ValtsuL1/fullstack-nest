@@ -1,5 +1,6 @@
+import { Comment } from "src/comment/entities/comment.entity";
 import { User } from "src/user/entities/user.entity";
-import { Column, Entity, ManyToMany, ManyToOne, PrimaryGeneratedColumn, Timestamp } from "typeorm";
+import { Column, Entity, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn, Timestamp } from "typeorm";
 
 @Entity()
 export class UserPost {
@@ -20,4 +21,7 @@ export class UserPost {
 
     @ManyToOne(() => User, (user) => user.userPosts)
     user: User
+
+    @OneToMany(() => Comment, (comment) => comment.userPost)
+    comments: Comment[]
 }

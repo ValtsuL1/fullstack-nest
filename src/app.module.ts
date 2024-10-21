@@ -9,6 +9,7 @@ import { UserPostModule } from './user_post/user_post.module';
 import { UserPost } from './user_post/entities/user_post.entity';
 import { AuthModule } from './auth/auth.module';
 import { CommentModule } from './comment/comment.module';
+import { Comment } from './comment/entities/comment.entity';
 
 // database information
 @Module({
@@ -21,7 +22,7 @@ import { CommentModule } from './comment/comment.module';
       username: 'postgres',
       password: process.env.DATABASE_PASSWORD,
       database: 'fullstackProject',
-      entities: [User, UserPost],
+      entities: [User, UserPost, Comment],
       synchronize: true,
     }),
     UserModule,
