@@ -20,8 +20,8 @@ export class UserPost {
     creationDate: Timestamp;
 
     @ManyToOne(() => User, (user) => user.userPosts)
-    user: User
+    user: User;
 
     @OneToMany(() => Comment, (comment) => comment.userPost)
-    comments: Comment[]
+    comments: Comment[];
 }

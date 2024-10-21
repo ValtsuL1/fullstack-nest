@@ -11,16 +11,21 @@ export class CommentService {
     @InjectRepository(Comment) private readonly commentRepository: Repository<Comment>
   ) {}
 
-  create(createCommentDto: CreateCommentDto) {
-    return 'This action adds a new comment';
+  async create(createCommentDto: CreateCommentDto): Promise<Comment> {
+    const comment: Comment = new Comment()
+    comment.content = createCommentDto.content
+    comment.creationDate = createCommentDto.creationDate
+    comment.userId = createCommentDto.userId
+    comment.userPostId = createCommentDto.userPostId
+    return this.commentRepository.save(comment)
   }
 
   findAll() {
-    return `This action returns all comment`;
+    return this.commentRepository.find();
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} comment`;
+    return this.commentRepository.findOneBy({ id });
   }
 
   update(id: number, updateCommentDto: UpdateCommentDto) {

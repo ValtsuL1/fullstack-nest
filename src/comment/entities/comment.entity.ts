@@ -12,9 +12,15 @@ export class Comment {
     @Column({type: 'timestamp without time zone'})
     creationDate: Timestamp;
 
+    @Column()
+    userId: number;
+
+    @Column()
+    userPostId: number;
+
     @ManyToOne(() => User, (user) => user.comments)
-    user: User
+    user: User;
 
     @ManyToOne(() => UserPost, (userPost) => userPost.comments)
-    userPost: UserPost
+    userPost: UserPost;
 }
