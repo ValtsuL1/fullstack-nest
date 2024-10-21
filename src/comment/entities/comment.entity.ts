@@ -1,7 +1,8 @@
 import { User } from "src/user/entities/user.entity";
 import { UserPost } from "src/user_post/entities/user_post.entity";
-import { Column, ManyToOne, PrimaryGeneratedColumn, Timestamp } from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, Timestamp } from "typeorm";
 
+@Entity()
 export class Comment {
     @PrimaryGeneratedColumn()
     id: number;
