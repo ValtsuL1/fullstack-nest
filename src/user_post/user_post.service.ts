@@ -32,6 +32,14 @@ export class UserPostService {
       .getMany()
   }
 
+  findAllByUserId(id: number) {
+    return this.userPostRepository.createQueryBuilder('user-post')
+      .leftJoinAndSelect('user-post.user', 'user')
+      .where('user-post.userId = :id', {id:id})
+      .orderBy('user-post.creationDate', 'DESC')
+      .getMany()
+  }
+
   findOne(id: number) {
     return this.userPostRepository.createQueryBuilder('user-post')
       .leftJoinAndSelect('user-post.user', 'user')
