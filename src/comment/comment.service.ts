@@ -32,6 +32,14 @@ export class CommentService {
       .getMany()
   }
 
+  findAllByUserId(id: number) {
+    return this.commentRepository.createQueryBuilder('comment')
+      .leftJoinAndSelect('comment.user', 'user')
+      .where('comment.userId = :id', {id: id})
+      .orderBy('comment.creationDate', 'DESC')
+      .getMany()
+  }
+
   findOne(id: number) {
     return this.commentRepository.findOneBy({ id });
   }
