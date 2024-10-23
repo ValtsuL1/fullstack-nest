@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { CommentService } from './comment.service';
 import { CreateCommentDto } from './dto/create-comment.dto';
 import { UpdateCommentDto } from './dto/update-comment.dto';
+import { Public } from 'src/public/public.decorator';
 
 @Controller('comment')
 export class CommentController {
@@ -20,6 +21,7 @@ export class CommentController {
     */
 
   @Get(':id')
+  @Public()
   findAll(@Param('id') id: string) {
     return this.commentService.findAllByUserPostId(+id);
   }

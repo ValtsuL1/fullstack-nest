@@ -18,7 +18,7 @@ export class UserPostController {
   findAll() {
     return this.userPostService.findAll();
   }
-
+  
   @Get(':id')
   @Public()
   findOne(@Param('id') id: string) {

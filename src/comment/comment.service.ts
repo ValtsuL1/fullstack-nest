@@ -26,8 +26,9 @@ export class CommentService {
 
   findAllByUserPostId(id: number) {
     return this.commentRepository.createQueryBuilder('comment')
-      .leftJoinAndSelect('comment.user', 'user.username')
+      .leftJoinAndSelect('comment.user', 'user')
       .where('comment.userPostId = :id', {id: id})
+      .orderBy('comment.creationDate', 'DESC')
       .getMany()
   }
 

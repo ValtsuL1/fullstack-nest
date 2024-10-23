@@ -19,13 +19,24 @@ export class UserPostService {
     userPost.creationDate = createUserPostDto.creationDate;
     return this.userPostRepository.save(userPost);
   }
-
+  /*
   findAll() {
     return this.userPostRepository.find();
   }
+    */
+
+  findAll() {
+    return this.userPostRepository.createQueryBuilder('user-post')
+      .leftJoinAndSelect('user-post.user', 'user')
+      .orderBy('user-post.creationDate', 'DESC')
+      .getMany()
+  }
 
   findOne(id: number) {
-    return this.userPostRepository.findOneBy({ id });
+    return this.userPostRepository.createQueryBuilder('user-post')
+      .leftJoinAndSelect('user-post.user', 'user')
+      .where('user-post.id = :id', {id:id})
+      .getOne();
   }
 
   update(id: number, updateUserPostDto: UpdateUserPostDto) {
