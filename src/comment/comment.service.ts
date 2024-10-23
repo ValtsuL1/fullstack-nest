@@ -49,6 +49,10 @@ export class CommentService {
   }
 
   remove(id: number) {
-    return `This action removes a #${id} comment`;
+    return this.commentRepository.createQueryBuilder('comment')
+      .delete()
+      .from(Comment)
+      .where('id = :id', {id:id})
+      .execute();
   }
 }
