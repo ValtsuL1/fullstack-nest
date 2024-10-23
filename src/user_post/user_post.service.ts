@@ -41,10 +41,15 @@ export class UserPostService {
   }
 
   findOne(id: number) {
+    try {
     return this.userPostRepository.createQueryBuilder('user-post')
       .leftJoinAndSelect('user-post.user', 'user')
       .where('user-post.id = :id', {id:id})
       .getOne();
+    }
+    catch (err) {
+      return err
+    }
   }
 
   update(id: number, updateUserPostDto: UpdateUserPostDto) {
@@ -52,6 +57,10 @@ export class UserPostService {
   }
 
   remove(id: number) {
-    return `This action removes a #${id} userPost`;
+    return this.userPostRepository.createQueryBuilder('user-post')
+      .delete()
+      .from(UserPost)
+      .where('id = :id', {id:id})
+      .execute();
   }
 }

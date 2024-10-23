@@ -26,6 +26,7 @@ export class UserPostController {
   }
 
   @Get('profile/:id')
+  @Public()
   findAllByUserId(@Param('id') id: string) {
     return this.userPostService.findAllByUserId(+id)
   }

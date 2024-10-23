@@ -27,6 +27,7 @@ export class CommentController {
   }
 
   @Get('profile/:id')
+  @Public()
   findAllByUserId(@Param('id') id: string) {
     return this.commentService.findAllByUserId(+id)
   }
