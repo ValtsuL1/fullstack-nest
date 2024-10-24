@@ -45,7 +45,11 @@ export class CommentService {
   }
 
   update(id: number, updateCommentDto: UpdateCommentDto) {
-    return `This action updates a #${id} comment`;
+    return this.commentRepository.createQueryBuilder('comment')
+    .update(Comment)
+    .set({ content: updateCommentDto.content })
+    .where('id = :id', {id:id})
+    .execute();
   }
 
   remove(id: number) {

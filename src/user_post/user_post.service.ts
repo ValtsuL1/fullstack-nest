@@ -53,7 +53,11 @@ export class UserPostService {
   }
 
   update(id: number, updateUserPostDto: UpdateUserPostDto) {
-    return `This action updates a #${id} userPost`;
+    return this.userPostRepository.createQueryBuilder('user-post')
+    .update(UserPost)
+    .set({ title: updateUserPostDto.title, content: updateUserPostDto.content })
+    .where('id = :id', {id:id})
+    .execute();
   }
 
   remove(id: number) {

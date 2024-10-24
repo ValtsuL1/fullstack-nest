@@ -20,7 +20,7 @@ export class CommentController {
   }
     */
 
-  @Get(':id')
+  @Get('user-post/:id')
   @Public()
   findAll(@Param('id') id: string) {
     return this.commentService.findAllByUserPostId(+id);
@@ -30,6 +30,11 @@ export class CommentController {
   @Public()
   findAllByUserId(@Param('id') id: string) {
     return this.commentService.findAllByUserId(+id)
+  }
+
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.commentService.findOne(+id)
   }
 
   @Patch(':id')
