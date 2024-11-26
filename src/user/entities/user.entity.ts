@@ -19,6 +19,9 @@ export class User {
     @Column({type: 'timestamp without time zone'})
     creationDate: Timestamp;
 
+    @Column({type: 'varchar', length: '30'})
+    role: string = "user";
+
     @OneToMany(() => UserPost, (userPost) => userPost.user)
     userPosts: UserPost[]
 
