@@ -19,4 +19,9 @@ export class AuthController {
     getProfile(@Request() req) {
         return req.user
     }
+
+    @Get('id')
+    getId(@Request() id) {
+        return id
+    }
 }
