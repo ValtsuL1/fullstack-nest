@@ -10,6 +10,7 @@ import { UserPost } from './user_post/entities/user_post.entity';
 import { AuthModule } from './auth/auth.module';
 import { CommentModule } from './comment/comment.module';
 import { Comment } from './comment/entities/comment.entity';
+import { ChatGateway } from './chat/chat.gateway';
 
 // database information
 @Module({
@@ -31,6 +32,6 @@ import { Comment } from './comment/entities/comment.entity';
     CommentModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, ChatGateway],
 })
 export class AppModule {}
