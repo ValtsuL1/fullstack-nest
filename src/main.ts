@@ -1,6 +1,5 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { SocketIoAdapter } from './adapters/socket-io.adapter';
 import { ConfigService } from '@nestjs/config';
 
 async function bootstrap() {
