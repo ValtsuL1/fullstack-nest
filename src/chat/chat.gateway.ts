@@ -39,12 +39,12 @@ export class ChatGateway
     this.logger.log(`Client id: ${client.id} disconnected`)
   }
 
-  @SubscribeMessage("ping")
+  @SubscribeMessage("message")
   handleMessage(client: any, data: any) {
     this.logger.log(`Message received from client id: ${client.id}`)
     this.logger.debug(`Payload: ${data}`)
     return {
-      event: "pong",
+      event: "message",
       data
     }
   }

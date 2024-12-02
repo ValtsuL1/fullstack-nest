@@ -11,6 +11,8 @@ import { AuthModule } from './auth/auth.module';
 import { CommentModule } from './comment/comment.module';
 import { Comment } from './comment/entities/comment.entity';
 import { ChatGateway } from './chat/chat.gateway';
+import { ChatMessageModule } from './chat_message/chat_message.module';
+import { ChatMessageModule } from './chat_message/chat_message.module';
 
 // database information
 @Module({
@@ -30,6 +32,7 @@ import { ChatGateway } from './chat/chat.gateway';
     UserPostModule,
     AuthModule,
     CommentModule,
+    ChatMessageModule,
   ],
   controllers: [AppController],
   providers: [AppService, ChatGateway],
