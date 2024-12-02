@@ -1,6 +1,7 @@
 import { User } from "src/user/entities/user.entity";
-import { Column, ManyToOne, PrimaryGeneratedColumn, Timestamp } from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, Timestamp } from "typeorm";
 
+@Entity()
 export class ChatMessage {
     @PrimaryGeneratedColumn()
     id: number

@@ -13,8 +13,8 @@ export class ChatMessageController {
   }
 
   @Get()
-  findAll() {
-    return this.chatMessageService.findAll();
+  findAll(@Param() params: string) {
+    return this.chatMessageService.findAllByUserAndReceiverId(+params);
   }
 
   @Get(':id')

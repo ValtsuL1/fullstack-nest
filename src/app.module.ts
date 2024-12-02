@@ -12,7 +12,7 @@ import { CommentModule } from './comment/comment.module';
 import { Comment } from './comment/entities/comment.entity';
 import { ChatGateway } from './chat/chat.gateway';
 import { ChatMessageModule } from './chat_message/chat_message.module';
-import { ChatMessageModule } from './chat_message/chat_message.module';
+import { ChatMessage } from './chat_message/entities/chat_message.entity';
 
 // database information
 @Module({
@@ -25,7 +25,7 @@ import { ChatMessageModule } from './chat_message/chat_message.module';
       username: 'postgres',
       password: process.env.DATABASE_PASSWORD,
       database: 'fullstackProject',
-      entities: [User, UserPost, Comment],
+      entities: [User, UserPost, Comment, ChatMessage],
       synchronize: true,
     }),
     UserModule,

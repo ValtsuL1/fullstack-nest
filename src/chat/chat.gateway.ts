@@ -8,7 +8,6 @@ import {
 } from '@nestjs/websockets';
 import { Logger } from '@nestjs/common';
 import { Server } from "socket.io"
-import { createServer } from 'http';
 
 @WebSocketGateway({ 
   cors: {
@@ -43,9 +42,6 @@ export class ChatGateway
   handleMessage(client: any, data: any) {
     this.logger.log(`Message received from client id: ${client.id}`)
     this.logger.debug(`Payload: ${data}`)
-    return {
-      event: "message",
-      data
-    }
+    this.io.emit("response", data)
   }
 }
