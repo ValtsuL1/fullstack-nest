@@ -1,4 +1,4 @@
-import { IsDate, IsEmail, IsNotEmpty, IsString, Matches, MinLength } from "class-validator";
+import { IsDate, IsEmail, IsNotEmpty, isString, IsString, Matches, MinLength } from "class-validator";
 import { Timestamp } from "typeorm";
 
 const passwordRegEx =
@@ -21,4 +21,12 @@ export class CreateUserDto {
     @IsNotEmpty()
     @IsDate()
     creationDate: Timestamp;
+
+    @IsNotEmpty()
+    @IsString()
+    role: string
+
+    @IsNotEmpty()
+    @IsString()
+    state: string
 }

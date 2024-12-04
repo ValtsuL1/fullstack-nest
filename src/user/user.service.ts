@@ -42,7 +42,11 @@ export class UserService {
   }
 
   update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
+    return this.userRepository.createQueryBuilder('user')
+    .update(User)
+    .set({ role: updateUserDto.role, state: updateUserDto.state })
+    .where('id = :id', {id:id})
+    .execute();
   }
 
   remove(id: number) {
