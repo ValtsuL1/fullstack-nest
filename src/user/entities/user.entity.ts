@@ -1,4 +1,3 @@
-import { ChatMessage } from "src/chat_message/entities/chat_message.entity";
 import { Comment } from "src/comment/entities/comment.entity";
 import { UserPost } from "src/user_post/entities/user_post.entity";
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn, Timestamp } from "typeorm";
@@ -28,7 +27,4 @@ export class User {
 
     @OneToMany(() => Comment, (comment) => comment.user)
     comments: Comment[]
-
-    @OneToMany(() => ChatMessage, (chatMessage) => chatMessage.user)
-    chatMessages: ChatMessage[]
 }
