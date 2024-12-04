@@ -20,7 +20,10 @@ export class User {
     creationDate: Timestamp;
 
     @Column({type: 'varchar', length: '30'})
-    role: string = "user";
+    role: string
+
+    @Column({type: 'varchar', length: '30'})
+    state: string
 
     @OneToMany(() => UserPost, (userPost) => userPost.user)
     userPosts: UserPost[]

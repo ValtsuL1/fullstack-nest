@@ -21,7 +21,4 @@ export class CreateUserDto {
     @IsNotEmpty()
     @IsDate()
     creationDate: Timestamp;
-
-    @IsNotEmpty()
-    role: string = "user";
 }

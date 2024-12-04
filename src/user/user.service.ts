@@ -19,6 +19,7 @@ export class UserService {
     user.password = await encodePassword(createUserDto.password);
     user.creationDate = createUserDto.creationDate;
     user.role = 'user'
+    user.state = 'normal'
     return this.userRepository.save(user);
   }
 
